@@ -1,0 +1,55 @@
+{%  include 'index.html' %}
+
+{% block body %}
+<div class="container">
+	<div class="msg">
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Hello !! Please provide your input dates for leave....</h2>
+		</div>
+	</div>
+	</div>
+
+<div class="main">
+    <form action="" method="POST" role="form">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <div class="form-group">
+            <label for="">Start Date:</label>
+            <input type="date" class="form-control" name='sdate' placeholder='Start Date' value="{{ request.form.sdate }}" required>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset">
+            <div class="form-group">
+            <label for="">End Date:</label>
+            <input type="date" class="form-control" name="edate" placeholder="End Date" value="{{ request.form.edate }}" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <div class="form-group">
+            <label for="">No of Days:</label>
+            <input type="number" class="form-control" name="days" placeholder="No. of Days" value="{{ request.form.days }}" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <label for="">Reason:</label>
+            <textarea class="form-control" rows="3" name="reason" placeholder="Reason For Leave" value="{{request.form.reason}}" required>
+            </textarea>
+            <input type="radio" name="off"  value={{request.form.off}} > Comp-Off<br>
+            </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% set active_page='cancel' %}
+{% block body %}
+<div class="container">
+	<div class="msg">
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Cancel your leave plan from list below..</h2>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">From Date => To Date => Reason</li>
+			{% if list %}
+			<li class="list-group-item">{{ list.sdate }} => {{ list.edate }} => {{ list.reason }}
+			<a href="/cancel/{{list.sdate}}={{list.edate}}={{list.usr_id}}={{list.days}}" class="icon">
+				<span style='float:right' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</a>
+			</li>
+			{% elif message %}
+			<p class="error" style="color:green;"><strong>Message:</strong> {{ message }}
+			{% elif error %}
+			<p class="error" style="color:red;"><strong>Error:</strong> {{ error }}
+			{% endif %}
+        </ul>
+        </div>
+
+{% endblock %}

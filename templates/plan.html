@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% set active_page='plan' %}
+{% block body %}
+<div class="container">
+	<div class="msg">
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Please provide your detail below!!</h2>
+		</div>
+	</div>
+	</div>
+	<div class="main">
+		<form action="" method="POST" role="form">
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">
+				<div class="form-group">
+				<label>Start Date:</label>
+				<input type="date" class="form-control" placeholder="Start Date" value="{{ request.form.sdate }}" name="sdate" required>
+				</div>
+			</div>
+			<div class="col-md-3 col-md-offset-1">
+				<div class="form-group">
+				<label>End Date:</label>
+				<input type="date" class="form-control" placeholder="End Date"  value="{{ request.form.edate }}" name="edate" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">
+				<div class="form-group">
+				<label>Nos of Days:</label>
+				<input type="number" class="form-control" placeholder="Nos of day" min="1" value="{{ request.form.days }}" name="days" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-md-7 col-md-offset-3">
+				<div class="form-group">
+				<label>Reason:</label>
+				<textarea style="resize:none;" class="form-control" rows="3" placeholder="Reason for leave."
+                          maxlength="300" value="{{ request.form.reason }}" name="reason" required></textarea>
+		</div>
+		<select name="type" >
+			<option value="leave"  selected> Leave</option>
+			{% if session['username'] in ['dpatil','bdas','kahire'] %}
+			<option value="compoff"> Comp-off</option>
+			{% endif %}
+		</select><br>
+		{% if error %}
+			<p class="error" style="color:red;"><strong>Error:</strong> {{ error }}
+		{% endif %}
+        {% if message %}
+			<p class="error" style="color:green;"><strong>Message:</strong> {{ message }}
+		{% endif %}
+				<br>
+		<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </div>
+		</form>
+    </div>
+</div>
+{% endblock %}

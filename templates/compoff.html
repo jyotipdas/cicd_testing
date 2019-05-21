@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% set active_page='compoff' %}
+{% block body %}
+<div class="container">
+	<div class="msg">
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Please provide your extra working day detail below !!!</h2>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div class="main">
+		<form method="POST">
+		<div class="row">
+			<div class="col-md-3 col-md-offset-4">
+				<div class="form-group">
+				<label>Worked On:</label>
+				<input type="date" class="form-control" placeholder="Compoff" name="compoff"
+                       value="{{ request.form.compoff}}" required>
+				</div>
+                <ul>
+                    {% if message %}
+                        <li style="color:green;">Message: {{ message }}</li>
+                    {% endif %}
+                </ul>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <br>
+
+			</div>
+
+        </div>
+        </form>
+</div>
+
+{% endblock %}

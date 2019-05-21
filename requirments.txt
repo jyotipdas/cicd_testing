@@ -1,0 +1,6 @@
+flask
+flask_wtf==0.14.2
+wtforms==2.1
+flask_sqlalchemy==2.2
+flask_login==0.4
+apscheduler==2.1.2
